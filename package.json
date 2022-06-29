@@ -1,8 +1,32 @@
 {
+  "name": "chuyendebanhoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "npm start --prefix web-ban-hang",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranhuyphu60cntt3/chuyendebanhoa.git"
+  },
+  "author": "Phu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tranhuyphu60cntt3/chuyendebanhoa/issues"
+  },
+  "homepage": "https://github.com/tranhuyphu60cntt3/chuyendebanhoa#readme",
   "dependencies": {
-    "react-router-dom": "^6.3.0"
+    "body-parser": "^1.20.0",
+    "concurrently": "^7.2.2",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.1"
   },
   "devDependencies": {
-    "sass": "^1.49.10"
+    "nodemon": "^2.0.18"
   }
+  
 }
