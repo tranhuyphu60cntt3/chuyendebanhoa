@@ -1,10 +1,13 @@
 const MatHang = require('../models/MatHang')
+const LoaiMatHang = require('../models/Loai')
 
 exports.getAllMatHang = async (req, res) => {
   const docs = await MatHang.findAll({
-    //   where: req.query
-  })
-
+    include: {
+      model: LoaiMatHang,
+      attributes: ['Ten']
+    }
+  });
   res.json({
       data: {docs}
   })

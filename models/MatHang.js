@@ -18,7 +18,7 @@ const MatHang = sequelize.define('mathang', {
         type: DataTypes.INTEGER
       },
       DonVi: {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
       },
       Gia: {
         type: DataTypes.INTEGER

@@ -3,11 +3,10 @@ var bodyParser = require('body-parser')
 const app = express();
 const port = 4000;
 // router
-const productRoutes = require('./routes/productRoutes')
 const nguoiDungRoutes = require('./routes/nguoiDungRoutes')
 const loaiNguoiDungRoutes = require('./routes/loaiNguoiDungRoutes')
-// const matHang = require('./routes/matHangRoutes')
-// const loai = require('./routes/loaiRoutes')
+const matHang = require('./routes/matHangRoutes')
+const loai = require('./routes/loaiRoutes')
 
 // model
 const NguoiDung = require('./models/NguoiDung')
@@ -68,11 +67,10 @@ app.set('view engine', 'ejs')
 
 
 
-app.use('/product', productRoutes);
 app.use('/nguoiDung', nguoiDungRoutes);
 app.use('/loaiNguoiDung', loaiNguoiDungRoutes);
-// app.use('/loai', loaiRoutes);
-// app.use('/matHang', matHangRoutes);
+app.use('/loai', loai);
+app.use('/matHang', matHang);
 
 
 app.listen(port, function(){console.log("Server Opened ", port)})

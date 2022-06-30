@@ -1,15 +1,15 @@
 const NguoiDung = require('../models/NguoiDung')
 const LoaiNguoiDung = require('../models/LoaiNguoiDung');
 exports.getAllNguoiDung = async (req, res) => {
-  const nguoiDung = await NguoiDung.findAll({
-      where: req.query,
-        include: [
-            {model: LoaiNguoiDung}
-        ]
-  })
+  const docs = await NguoiDung.findAll({
+    include: {
+        model: LoaiNguoiDung,
+        attributes: ['Ten']
+    }
+  });
 
   res.json({
-      data: {docs: nguoiDung}
+      data: {docs}
   })
 }
 
