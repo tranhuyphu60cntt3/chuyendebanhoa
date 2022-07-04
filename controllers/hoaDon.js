@@ -1,12 +1,16 @@
-const HoaDon = require('../models/HoaDon')
+const HoaDon = require('../models/HoaDon');
+const NguoiDung = require("../models/NguoiDung");
 
 exports.getAllHoaDon = async (req, res) => {
-  const hoaDon = await HoaDon.findAll({
-      where: req.query
-  })
+    const docs = await HoaDon.findAll({
+        include: [
+            {model: NguoiDung,   as :'khachhang', attributes :["Ten","Ho"]},
+            {model: NguoiDung,   as :'nhanvien', attributes :["Ten","Ho"]}
+        ]
+      });
 
   res.json({
-      data: {docs: hoaDon}
+      data: {docs}
   })
 }
 

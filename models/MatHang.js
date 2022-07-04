@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/db')
 
-const MatHang = sequelize.define('mathang', {
+const MatHang = sequelize.define('matHang', {
       id: {
       type: DataTypes.INTEGER,
       allowNull: false,

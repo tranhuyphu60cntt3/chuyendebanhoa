@@ -1,9 +1,20 @@
 const ChiTietHoaDon = require('../models/ChiTietHoaDon')
+const MatHang = require("../models/MatHang");
+const HoaDon = require("../models/HoaDon");
 
 exports.getAllChiTietHoaDon = async (req, res) => {
   const chiTietHoaDon = await ChiTietHoaDon.findAll({
-      where: req.query
-  })
+    include: [
+        {
+          model: HoaDon,
+          attributes: ["Ten"],
+        },
+        {
+          model: MatHang,
+          attributes: ["Ten"],
+        },
+      ],
+  });
 
   res.json({
       data: {docs: chiTietHoaDon}

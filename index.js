@@ -5,8 +5,12 @@ const port = 4000;
 // router
 const nguoiDungRoutes = require('./routes/nguoiDungRoutes')
 const loaiNguoiDungRoutes = require('./routes/loaiNguoiDungRoutes')
-const matHang = require('./routes/matHangRoutes')
-const loai = require('./routes/loaiRoutes')
+const matHangRoutes = require('./routes/matHangRoutes')
+const loaiRoutes = require('./routes/loaiRoutes')
+const nhaCungCapRoutes = require('./routes/nhaCungCapRoutes')
+const hoaDonRoutes = require('./routes/hoaDonRoutes')
+const phanHoiRoutes = require('./routes/phanHoiRoutes')
+const chiTietDoaDonRoutes = require('./routes/chiTietHoaDonRoutes')
 
 // model
 const NguoiDung = require('./models/NguoiDung')
@@ -40,10 +44,16 @@ ChiTietHoaDon.belongsTo(HoaDon, {
       foreignKey: 'HDId'
 })
 HoaDon.belongsTo(NguoiDung, {
-      foreignKey: 'KHId'
+      as :'khachhang',
+      foreignKey: {
+            name :'KHId'
+      } 
 })
 HoaDon.belongsTo(NguoiDung, {
-      foreignKey: 'NVId'
+      as :'nhanvien',
+      foreignKey: {
+            name :'NVId'
+      } 
 })
 
 // Kết nối database
@@ -67,10 +77,14 @@ app.set('view engine', 'ejs')
 
 
 
+app.use('/nhaCungCap', nhaCungCapRoutes);
 app.use('/nguoiDung', nguoiDungRoutes);
 app.use('/loaiNguoiDung', loaiNguoiDungRoutes);
-app.use('/loai', loai);
-app.use('/matHang', matHang);
+app.use('/loai', loaiRoutes);
+app.use('/matHang', matHangRoutes);
+app.use('/hoaDon', hoaDonRoutes);
+app.use('/chiTietDoaDon', chiTietDoaDonRoutes);
+app.use('/phanHoi', phanHoiRoutes);
 
 
 app.listen(port, function(){console.log("Server Opened ", port)})
