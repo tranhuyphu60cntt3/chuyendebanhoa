@@ -51,10 +51,7 @@ exports.deleteNhaCungCap = async (req, res) => {
     where: { id: id },
   });
   nhaCungCap.destroy();
-  const doc =  await NhaCungCap.findOne({
-    where: { id: id },
-  });
   res.json({
-    data: { doc: doc ? 0 : id },
+    data: { doc: id },
   });
 };

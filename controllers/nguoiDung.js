@@ -30,7 +30,10 @@ exports.deleteNguoiDung = async (req, res) => {
             where: {id: id}
       })
       nguoiDung.destroy();
+      const doc =  await NguoiDung.findOne({
+        where: { id: id },
+      });
       res.json({
-            data: {docs: nguoiDung}
-      })
+        data: { doc: doc ? 0 : id },
+      });
 }

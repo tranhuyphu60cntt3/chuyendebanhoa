@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../utils/db')
 
-const MatHang = sequelize.define('matHang', {
+const MatHang = sequelize.define('mathang', {
       id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -26,7 +26,7 @@ const MatHang = sequelize.define('matHang', {
       NCCId: {
         type: DataTypes.INTEGER
       },
-      IdLoai: {
+      LoaiId: {
         type: DataTypes.INTEGER
       }
   }

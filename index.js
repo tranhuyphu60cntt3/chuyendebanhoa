@@ -1,7 +1,7 @@
 const express = require('express')
 var bodyParser = require('body-parser')
 const app = express();
-const port = 4000;
+const port = 5000;
 // router
 const nguoiDungRoutes = require('./routes/nguoiDungRoutes')
 const loaiNguoiDungRoutes = require('./routes/loaiNguoiDungRoutes')
@@ -11,6 +11,7 @@ const nhaCungCapRoutes = require('./routes/nhaCungCapRoutes')
 const hoaDonRoutes = require('./routes/hoaDonRoutes')
 const phanHoiRoutes = require('./routes/phanHoiRoutes')
 const chiTietDoaDonRoutes = require('./routes/chiTietHoaDonRoutes')
+
 
 // model
 const NguoiDung = require('./models/NguoiDung')
@@ -26,7 +27,7 @@ NguoiDung.belongsTo(LoaiNguoiDung, {
       foreignKey: 'LNDId'
 })
 MatHang.belongsTo(Loai, {
-      foreignKey: 'IdLoai'
+      foreignKey: 'LoaiId'
 })    
 MatHang.belongsTo(NhaCungCap, {
       foreignKey: 'NCCId'
